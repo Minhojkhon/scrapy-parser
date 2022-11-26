@@ -2,13 +2,13 @@ import scrapy
 from games_information.items import GamesInformationItem
 from urllib.parse import urlencode
 
-API = 'd0310062d509f6548e17a0db4940c179'
-
-
-def get_url(url):
-    payload = {'api_key': API, 'url': url}
-    proxy_url = 'http://api.scraperapi.com/?' + urlencode(payload)
-    return proxy_url
+# API = 'token'
+# 
+#
+# def get_url(url):
+#     payload = {'api_key': API, 'url': url}
+#     proxy_url = 'http://api.scraperapi.com/?' + urlencode(payload)
+#     return proxy_url
 
 class GameScrapy(scrapy.Spider):
     name = 'game'

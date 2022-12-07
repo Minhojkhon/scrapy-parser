@@ -62,13 +62,14 @@ class GameScrapy(scrapy.Spider):
             pass
 
         try:
-            item['reviews_quan'] = response.css('div.user_reviews_summary_bar span::text').getall()[1][1:-1].split()[0]
+            item['reviews_score_and_quan'] = response.css('div.glance_ctn.glance_ctn div.summary.column span::text').getall()
+            item['reviews_score_and_quan'] = item['reviews_score_and_quan'][0].strip() + item['reviews_score_and_quan'][1].strip()
         except:
             pass
 
-        try:
-            item['score'] = response.css('div#game_area_metascore div.score::text').get().strip()
-        except:
-            pass
+        # try:
+        #     item['score'] = response.css('div#game_area_metascore div.score::text').get().strip()
+        # except:
+        #     pass
 
         return item

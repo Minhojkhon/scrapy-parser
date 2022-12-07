@@ -15,7 +15,7 @@ class GamesInformationItem(scrapy.Item):
     price = scrapy.Field()
     platforms = scrapy.Field()
     category = scrapy.Field()
-    reviews_quan = scrapy.Field()
+    reviews_score_and_quan = scrapy.Field()
     score = scrapy.Field()
 
 

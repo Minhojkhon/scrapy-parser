@@ -31,6 +31,10 @@ class GameScrapy(scrapy.Spider):
         if item['name'] is None or item['name'] == "":
             return
         item['release_date'] = response.css('div.release_date div.date::text').get()
+        date = item['release_date'][-4:]
+        if int(date) < 2020:
+            return
+
         item['developer'] = response.css('div.dev_row a::text').get()
         item['price'] = response.css('div.discount_final_price::text').get()
         if item['price'] == "":
